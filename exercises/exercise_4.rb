@@ -12,8 +12,11 @@ Store.create(name: "Surrey", annual_revenue: 224000, mens_apparel: false, womens
 Store.create(name: "Whistler", annual_revenue: 1900000, mens_apparel: true, womens_apparel: false)
 Store.create(name: "Yaletown", annual_revenue: 430000, mens_apparel: true, womens_apparel: true)
 
-@mens_stores = Store.find_by(mens_apparel: true)
-puts @mens_stores.name
+@mens_stores = Store.where("mens_apparel = true").pluck(:name, :annual_revenue)
+puts @mens_stores
+
+@womens_stores = Store.where(["womens_apparel = ? and annual_revenue < ?", "true", "1000000"]).pluck(:name, :annual_revenue)
+puts @womens_stores
 
 
 =begin
