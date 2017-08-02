@@ -18,6 +18,7 @@ ActiveRecord::Base.establish_connection(
   encoding: 'unicode',
   min_messages: 'error'
 )
+
 puts 'CONNECTED'
 
 puts 'Setting up Database (recreating tables) ...'
